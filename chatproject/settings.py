@@ -27,6 +27,10 @@ DEBUG = False
 
 ALLOWED_HOSTS = ["buddychat-iriz.onrender.com"]
 
+CSRF_TRUSTED_ORIGINS = [
+    "https://buddychat-iriz.onrender.com/"
+]
+
 
 # Application definition
 

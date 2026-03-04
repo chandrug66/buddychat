@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Group Rooms</h2>
+
+<form method="post" class="room-form">
+    {% csrf_token %}
+    <input type="text" name="room_name" placeholder="Enter room name">
+    <button>Create / Join</button>
+</form>
+
+
+<h3 style="margin-top:30px;">Recent Groups</h3>
+
+<div class="rooms-list">
+
+{% for room in rooms %}
+
+<div class="room-card">
+
+<span>{{ room.name }}</span>
+
+<a href="{% url 'chat_room' room.name %}" class="btn-message">
+Open
+</a>
+
+</div>
+
+{% empty %}
+
+<p>No groups created yet.</p>
+
+{% endfor %}
+
+</div>
+
+{% endblock %}
